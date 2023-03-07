@@ -144,12 +144,14 @@ def main(unused_argv):
     predictions = outputs
 
     # Create a saver in order to load the pre-trained checkpoint.
-    saver = tf.train.Saver()
+    #saver = tf.train.Saver()
+    model.load_weights(FLAGS.checkpoint_path)
+    
 
     image_with_detections_list = []
     with tf.Session() as sess:
       print(' - Loading the checkpoint...')
-      saver.restore(sess, FLAGS.checkpoint_path)
+      #saver.restore(sess, FLAGS.checkpoint_path)
 
       image_files = tf.gfile.Glob(FLAGS.image_file_pattern)
       for i, image_file in enumerate(image_files):
