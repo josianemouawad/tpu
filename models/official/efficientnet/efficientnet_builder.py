@@ -17,7 +17,8 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-
+import sys
+sys.path.insert(1,"/content/tpu/models/official/efficientnet")
 import functools
 import os
 import re
@@ -26,7 +27,7 @@ import numpy as np
 import six
 import tensorflow.compat.v1 as tf
 
-import efficientnet_model
+from efficientnet import efficientnet_model
 import utils
 MEAN_RGB = [0.485 * 255, 0.456 * 255, 0.406 * 255]
 STDDEV_RGB = [0.229 * 255, 0.224 * 255, 0.225 * 255]
